@@ -1,7 +1,8 @@
 # Create your views here.
 from django.contrib.auth.models import User, Group
+from models import Place
 from rest_framework import viewsets
-from serializers import UserSerializer, GroupSerializer
+from serializers import UserSerializer, GroupSerializer, PlaceSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -18,3 +19,10 @@ class GroupViewSet(viewsets.ModelViewSet):
     """
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+
+class PlaceViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows places to be viewed or edited.
+    """
+    queryset = Place.objects.all()
+    serializer_class = PlaceSerializer
